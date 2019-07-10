@@ -1,0 +1,56 @@
+html, body{
+    background-color: rebeccapurple;
+}
+
+/*
+*** Classes ***
+*/
+
+.js-cal-container{
+    background-color: #000;
+    width: 260px;
+    margin: 60px auto;
+    padding: 1rem .75rem;
+}
+
+.js-cal-display-container{
+    color: #fff;
+    text-align: right;
+    font-size: 3rem;
+    height: 4.5rem;
+    padding-top: 1rem;
+}
+
+.js-cal-display{
+    border: 1px solid #fff;
+}
+
+button{
+    width: 60px;
+    height: 60px;
+    font-size: 150%;
+    margin: 0 1px 5px 1px;
+    border-radius: 50%;
+    border: none;
+}
+
+.btn-wide{
+    width: 126px;
+    text-align: left;
+    padding-left: 24px;
+    border-radius: 60px;
+}
+
+.btn-number, #btn-decimal{
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-operator{
+    background-color: orange;
+}
+
+.btn-number, .btn-operator{
+    color: #fff;
+    font-size: 200%;
+}
