@@ -1,3 +1,7 @@
+  git config --global user.email "whollycoder@gmail.com"
+  git config --global user.name "Michael L Parks"
+
+
 JS Cal - JS
 // Get Handles
 var calculatorDisplay = document.getElementById('js-cal-display');
