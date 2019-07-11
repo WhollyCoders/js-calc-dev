@@ -1,77 +1,112 @@
-/* FUNCTIONS */
-function getDisplayContents() {
-    return calculatorDisplay.innerHTML;
-}
-
-/* ELEMENT HANDLES */
+// Get Handles
 var calculatorDisplay = document.getElementById('js-cal-display');
-var clearButton = document.getElementById('btn-clear');
-var oppositeButton = document.getElementById('btn-opposite');
-var percentButton = document.getElementById('btn-percent');
-// var oneButton = document.getElementById('btn-one');
-// var twoButton = document.getElementById('btn-two');
-// var threeButton = document.getElementById('btn-three');
-// var fourButton = document.getElementById('btn-four');
-// var fiveButton = document.getElementById('btn-five');
-// var sixButton = document.getElementById('btn-six');
-// var sevenButton = document.getElementById('btn-seven');
-// var eightButton = document.getElementById('btn-eight');
-// var nineButton = document.getElementById('btn-nine');
-// var zeroButton = document.getElementById('btn-zero');
-var decimalButton = document.getElementById('btn-decimal');
+var functionButtons = document.getElementsByClassName('btn-function');
 var numberButtons = document.getElementsByClassName('btn-number');
 
-
-/* EVENT LISTENERS */
-clearButton.addEventListener('click', () => {
-    calculatorDisplay.innerHTML = "0";
-});
-
-oppositeButton.addEventListener('click', () => {
-    calculatorDisplay.innerHTML = getDisplayContents() / -1;
-});
-
-percentButton.addEventListener('click', () => {
-    calculatorDisplay.innerHTML = getDisplayContents() / 100;
-});
-
-for (var i = 0; i < numberButtons.length; i++) {
-    console.log('NUMBER: '+i);
-    console.log(numberButtons[i]);
-    console.log(numberButtons[i].innerHTML);
+// Functions
+function setEventListeners(){
+	
+	// Add Event Listeners For Function Buttons
+	for (i = 0; i < functionButtons.length; i++){
+		
+		if(functionButtons[i].name == 'clear'){
+			// Add Event Listener for CLEAR Button
+			functionButtons[i].addEventListener('click', function(){
+				
+				clearDisplay();
+				
+			});
+		}else if(functionButtons[i].name == 'opposite'){
+			// Add Event Listener for OPPOSITE Button		
+			functionButtons[i].addEventListener('click', function(){
+				
+				let displayValue = calculatorDisplay.innerHTML;
+				calculatorDisplay.innerHTML = ( displayValue * -1 );
+				
+			});
+		}else{
+			
+			// Add Event Listener for PERCENT Button
+			functionButtons[i].addEventListener('click', function(){
+				
+				let displayValue = calculatorDisplay.innerHTML;
+				calculatorDisplay.innerHTML = ( displayValue / 100 );
+				
+			});
+		}
+		
+	}
+	
+	for (j = 0; j < numberButtons.length; j++){
+		
+		let buttonValue = numberButtons[j].innerHTML;
+		
+		if(numberButtons[j].name == 'zero'){
+			
+			numberButtons[j].addEventListener('click', function(){
+				//console.log("ZERO Button was Clicked!!!");
+				addZeroToDisplay();
+			});
+			
+		}
+		else if(numberButtons[j].name == 'decimal'){
+			
+			numberButtons[j].addEventListener('click', function(){
+				//console.log("DECIMAL Button was Clicked!!!");
+				addDecimalToDisplay();
+			});
+		}
+		else{
+			
+			numberButtons[j].addEventListener('click', function(){
+				addNumberToDisplay(buttonValue);
+			});
+			
+		}
+		
+	}
+	
 }
 
+function initCalc(){
+	clearDisplay();
+	setEventListeners();
+}
 
+function clearDisplay(){
+	
+	if(calculatorDisplay.innerHTML != "0"){
+		calculatorDisplay.innerHTML = "0";
+	}
+	
+}
 
-//     let buttonValue = numberButtons[i].innerHTML;
-//     console.log(buttonValue);
-//     if (buttonValue == "0") {
-//         console.log("This is the ZERO Button");
-//         numberButtons[i].addEventListener('click', () => {
-//             if (getDisplayContents() !== "0") {
-//                 calculatorDisplay.innerHTML += buttonValue;
-//             }
-//         });
-//     } else if (buttonValue == ".") {
+function addNumberToDisplay(displayValue){
+	
+	if(calculatorDisplay.innerHTML != "0"){
+		calculatorDisplay.innerHTML += displayValue;
+	}else{
+		calculatorDisplay.innerHTML = displayValue;
+	}
+	
+}
 
-//         decimalButton.addEventListener('click', function () {
-//             let btnValue = decimalButton.innerHTML;
-//             console.log("The DECIMAL Button Was Clicked!!!");
-//             if (!calculatorDisplay.innerHTML.includes(".")) {
-//                 calculatorDisplay.innerHTML += btnValue;
-//             }
-//         }
+function addDecimalToDisplay(){
+	
+	if(!calculatorDisplay.innerHTML.includes(".")){
+		calculatorDisplay.innerHTML += ".";
+	}
+	
+}
 
-//     } else {
-//         buttonValue = numberButtons[i].innerHTML;
-//         console.log("This is a NUMBER Button");
-//         numberButtons[i].addEventListener('click', function () {
-//             console.log('The ' + buttonValue + ' Button Was Pressed...');
-//             if (getDisplayContents() !== "0") {
-//                 calculatorDisplay.innerHTML += buttonValue;
-//             } else {
-//                 calculatorDisplay.innerHTML = buttonValue;
-//             }
-//         });
-//     })
-// }
+function addZeroToDisplay(){
+	
+	if(calculatorDisplay.innerHTML != "0"){
+		calculatorDisplay.innerHTML += 0;
+	}else{
+		calculatorDisplay.innerHTML = 0;
+	}	
+	
+}
+
+initCalc();

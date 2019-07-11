@@ -1,51 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JS Calculator</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-    <div class="container">
-        <div class="js-cal-container">
-            <div class="js-cal-display-container">
-                <div id="js-cal-display">0</div>
-            </div>
-            <div class="js-cal-button-container">
-                <div class="js-cal-button-row">
-                    <button class="js-cal-button" id="btn-clear">AC</button>
-                    <button class="js-cal-button" id="btn-opposite">+/-</button>
-                    <button class="js-cal-button" id="btn-percent">%</button>
-                    <button class="js-cal-button btn-operator">&divide;</button>
-                </div>
-                <div class="js-cal-button-row">
-                    <button class="js-cal-button btn-number" id="btn-seven">7</button>
-                    <button class="js-cal-button btn-number" id="btn-eight">8</button>
-                    <button class="js-cal-button btn-number" id="btn-nine">9</button>
-                    <button class="js-cal-button btn-operator">&times;</button>                    
-                </div>
-                <div class="js-cal-button-row">
-                    <button class="js-cal-button btn-number" id="btn-four">4</button>
-                    <button class="js-cal-button btn-number" id="btn-five">5</button>
-                    <button class="js-cal-button btn-number" id="btn-six">6</button>
-                    <button class="js-cal-button btn-operator">&minus;</button>
-                </div>
-                <div class="js-cal-button-row">
-                    <button class="js-cal-button btn-number" id="btn-one">1</button>
-                    <button class="js-cal-button btn-number" id="btn-two">2</button>
-                    <button class="js-cal-button btn-number" id="btn-three">3</button>
-                    <button class="js-cal-button btn-operator">&plus;</button>                    
-                </div>
-                <div class="js-cal-button-row">
-                    <button class="js-cal-button btn-number btn-wide" id="btn-zero">0</button>
-                    <button class="js-cal-button" id="btn-decimal">&period;</button>
-                    <button class="js-cal-button btn-operator">&equals;</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="./script.js"></script>
-</body>
+<html>
+	<head>
+		<title>JS Calculator</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./styles.css">
+	</head>
+	<body>
+		<div class="js-cal-container">
+			<div class="js-calculator">
+				<div class="js-cal-display-container">
+					<div id="js-cal-display">123456789</div>
+				</div>
+				<div class="js-cal-button-container">
+					<div class="js-cal-button-row">
+						<button class="btn-function" name="clear">AC</button>
+						<button class="btn-function" name="opposite">+/-</button>
+						<button class="btn-function" name="percent">&percnt;</button>
+						<button class="btn-operation" name="divide">&divide;</button>
+					</div>
+					<div class="js-cal-button-row">
+						<button class="btn-number">7</button>
+						<button class="btn-number">8</button>
+						<button class="btn-number">9</button>
+						<button class="btn-operation" name="multiply">&times;</button>					
+					</div>
+					<div class="js-cal-button-row">
+						<button class="btn-number">4</button>
+						<button class="btn-number">5</button>
+						<button class="btn-number">6</button>
+						<button class="btn-operation" name="subtract">&minus;</button>
+					</div>
+					<div class="js-cal-button-row">
+						<button class="btn-number">1</button>
+						<button class="btn-number">2</button>
+						<button class="btn-number">3</button>
+						<button class="btn-operation" name="add">&plus;</button>					
+					</div>
+					<div class="js-cal-button-row">
+						<button class="btn-number btn-wide" name="zero">0</button>
+						<button class="btn-number" name="decimal">&period;</button>
+						<button class="btn-operation" name="equal">&equals;</button>					
+					</div>					
+				</div>
+			</div>
+		</div>
+		<script src="./script.js"></script>
+	</body>
 </html>
